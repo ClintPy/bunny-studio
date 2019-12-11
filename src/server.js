@@ -5,6 +5,10 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
+// routes
+import tasksRouter from "../routes/tasksRoute";
+import userRouter from "../routes/userRoute";
+
 dotenv.config();
 
 const app = express();
@@ -29,11 +33,12 @@ const db = mongoose.connection;
 if (!db) console.log("Error Connecting to DB!");
 else console.log("DB Connected Successfully!");
 
-
-
 app.get("/", (req, res) => {
   return res.status(200).send({ message: "Welcome!" });
 });
+
+app.use(tasksRouter);
+app.use(userRouter);
 
 // Setup Server Port
 const port = process.env.PORT || 3000;
