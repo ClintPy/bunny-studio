@@ -1,7 +1,8 @@
 // server.js
 import express from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
 import mongoose from "mongoose";
-import bodyPaser from "body-parser";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -13,6 +14,11 @@ const DB_PWD = process.env.DB_PWD || "eastood";
 
 const DEV_CONNECTION_URI = `mongodb+srv://${DB_NAME}:${DB_PWD}@cluster0-nsnkg.mongodb.net/dev?retryWrites=true&w=majority`;
 
+// middlewares
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 // Connect to Mongodb
 mongoose.connect(DEV_CONNECTION_URI, {
   useUnifiedTopology: true,
@@ -23,7 +29,7 @@ const db = mongoose.connection;
 if (!db) console.log("Error Connecting to DB!");
 else console.log("DB Connected Successfully!");
 
-app.use(bodyPaser.json());
+
 
 app.get("/", (req, res) => {
   return res.status(200).send({ message: "Welcome!" });
