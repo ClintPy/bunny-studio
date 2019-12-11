@@ -119,7 +119,7 @@ const usersController = {
                 message: 'Oops! User not Found!',
             })
         }
-        const user = User.findById(id).populate('tasks').then(results => {
+        User.findById(id).populate('tasks').then(results => {
             res.status(200).json({
                 Tasks: results
             })
