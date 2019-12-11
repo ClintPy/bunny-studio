@@ -6,8 +6,8 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 // routes
-import tasksRouter from "../routes/tasksRoute";
-import userRouter from "../routes/userRoute";
+import tasksRouter from "../../routes/tasksRoute";
+import userRouter from "../../routes/userRoute";
 
 dotenv.config();
 

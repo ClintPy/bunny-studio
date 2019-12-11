@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose')
 
 const UserTacks = mongoose.Schema({
     description: {
@@ -15,4 +15,4 @@ const UserTacks = mongoose.Schema({
     }
 })
 
-export default mongoose.model('Tasks', UserTacks)
+module.exports =  mongoose.model('Tasks', UserTacks)
