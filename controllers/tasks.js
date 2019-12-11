@@ -7,48 +7,44 @@ const tasksController = {
    * @params {object} res
    * @return {object} task object
    */
-  createTask(req, res) {
-    user = req.params;
-    id = user.id;
-
+  createTask: async (req, res) => {
+    const { id } = req.params;
+    
+    if(!id){
+      res.status(404).json({
+        message: 'Not allowed!'
+      })
+    }
     const { description, state } = req.body;
     const task = new Task({
       description,
       state,
       user: id
     });
-    task.save();
 
-    const userById = User.findById(id);
+    await task.save();
 
-    userById
-      .then(user => {
-        user.posts.push(post);
-      })
-      .then(results => {
-        results.save();
-      })
-      .catch(err => {
-        err;
-      });
+    const userById = await User.findById({ _id: id })
+
+    userById.tasks.push(task)
+
+    await userById.save()
+
+    return res.status(201).json({
+      tasks: userById
+    })
   },
   /**
    * @params {object} req
    * @params {object} res
    * @returns {object} user object
    */
-  userByTasks(req, res) {
+  userByTasks: async (req, res) => {
     const { id } = req.params;
-    Task.findById(id)
-      .populate("user")
-      .then(user => {
-        res.status(200).json({
-          user
-        });
-      })
-      .catch(err => {
-        err;
-      });
+
+    const userByTasks = await User.findById(id).populate('user')
+
+    res.status(200).json({ userByTasks })
   }
 };
 

@@ -6,7 +6,7 @@ const UserTacks = mongoose.Schema({
         required: '{PATH} is required'
     },
     state: {
-        type: { todo: String, done: String},
+        type: Boolean,
         required: '{PATH} is required'
     },
     user: {
