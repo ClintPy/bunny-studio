@@ -1,5 +1,4 @@
 import User from '../db/UserModel';
-import { getEnabledCategories } from 'trace_events';
 
 const usersController = {
     /**
@@ -128,6 +127,7 @@ const usersController = {
             err
         })
         
-        
     }
 }
+
+export default usersController
