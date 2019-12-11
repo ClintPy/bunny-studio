@@ -1,0 +1,22 @@
+{
+  "name": "bunny",
+  "version": "1.0.0",
+  "description": "A To DO Full-Stack App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClintPy/bunny-studio.git"
+  },
+  "keywords": [
+    "To-Do"
+  ],
+  "author": "Clint Maruti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ClintPy/bunny-studio/issues"
+  },
+  "homepage": "https://github.com/ClintPy/bunny-studio#readme"
+}
