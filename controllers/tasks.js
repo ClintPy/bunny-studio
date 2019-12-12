@@ -1,5 +1,5 @@
-const Task = require("../db/UserTasks");
-const User = require("../db/UserModel");
+const Task = require("../models/TaskModel");
+const User = require("../models/UserModel");
 
 const tasksController = {
   /**

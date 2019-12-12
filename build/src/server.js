@@ -24,7 +24,7 @@ var _mongoose = require("mongoose");
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
 
-var _database = require("../../db/helpers/database");
+var _database = require("../../config/database");
 
 var _database2 = _interopRequireDefault(_database);
 
@@ -56,15 +56,6 @@ app.use((0, _cors2.default)());
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
 app.use(_bodyParser2.default.json());
 
-// Connect to Mongodb
-// mongoose.connect(DEV_CONNECTION_URI, {
-//   useUnifiedTopology: true,
-//   useNewUrlParser: true
-// });
-// const db = mongoose.connection;
-
-// if (!db) console.log("Error Connecting to DB!");
-// else console.log("DB Connected Successfully!");
 
 app.get("/", function (req, res) {
   return res.status(200).send({ message: "Welcome!" });
